@@ -17,13 +17,13 @@ router.get("/turnos-ocupados", viewDataController);
 
 router.post("/send-message", async (req, res) => {
   const { name, email, subject, message } = req.body;
-  res.send('Hola')
   try {
     const { data, error } = await resend.emails.send({
       from: email,
-      to: "julialva2008@gmail.com",
+      to: ["julialva2008@gmail.com"],
       subject: `${subject}: ${name}`,
       html: message,
+      text: message      
     });
 
     if (error) {
@@ -32,6 +32,7 @@ router.post("/send-message", async (req, res) => {
       })
     }
     res.status(200).json({
+        msg: "Mensaje enviado",
         data
     })
     console.log({ data });
