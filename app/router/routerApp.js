@@ -6,6 +6,7 @@ import { Resend } from "resend";
 
 const router = Router(); // Sirve para exportar las rutas al router principal
 const resend = new Resend("re_2ZnRBvju_zf7xtCwFt9uq6DpdUJhv9SJX");
+resend.domains.create({ name: 'https://lucianacresia.netlify.app' });
 
 router.post("/create_preference", mercadoPagoController);
 

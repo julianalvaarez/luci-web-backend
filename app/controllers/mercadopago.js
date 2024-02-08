@@ -14,8 +14,8 @@ export const mercadoPagoController = async (req, res) => {
             ],
             back_urls: {
                 success: 'https://lucianacresia.netlify.app/realizatedPage',
-                failure: 'https://www.youtube.com/@onthecode',
-                pending: 'https://www.youtube.com'
+                failure: 'https://lucianacresia.netlify.app',
+                pending: 'https://lucianacresia.netlify.app'
             },
             auto_return: 'approved'
         }
