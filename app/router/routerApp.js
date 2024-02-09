@@ -41,4 +41,30 @@ router.post("/send-message", async (req, res) => {
   }
 });
 
+router.post("/shift-confirmated", async (req, res) => {
+  const { name, surname, email, fecha, horaInicio, horaFin } = req.body;
+  try {
+    const { data, error } = await resend.emails.send({
+      from: "julialva2008@gmail.com",
+      to: ["julialva2008@gmail.com", email],
+      subject: `Turno Confirmado: ${name} ${surname}`,
+      html: `Nombre del Paciente: ${name} ${surname} \n Fecha de la Consulta: ${fecha} \n Horario de la Consulta: ${horaInicio} - ${horaFin} \n Monto Total: 5000ARS `,
+      text:  `Nombre del Paciente: ${name} ${surname} \n Fecha de la Consulta: ${fecha} \n Horario de la Consulta: ${horaInicio} - ${horaFin} \n Monto Total: 5000ARS `      
+    });
+
+    if (error) {
+      res.status(500).json({
+          error
+      })
+    }
+    res.status(200).json({
+        msg: "Mensaje enviado",
+        data
+    })
+    console.log({ data });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default router;
