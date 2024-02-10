@@ -19,11 +19,10 @@ router.post("/send-message", async (req, res) => {
   const { name, email, subject, message } = req.body;
   try {
     const { data, error } = await resend.emails.send({
-      from: email,
+      from: 'Acme <onboarding@resend.dev>',
       to: ["julialva2008@gmail.com"],
-      subject: `${subject}: ${name}`,
+      subject: `${subject}: ${name} - ${email}`,
       html: message,
-      text: message      
     });
 
     if (error) {
@@ -45,11 +44,10 @@ router.post("/shift-confirmated", async (req, res) => {
   const { name, surname, email, fecha, horaInicio, horaFin } = req.body;
   try {
     const { data, error } = await resend.emails.send({
-      from: "julialva2008@gmail.com",
+      from: "Acme <onboarding@resend.dev>",
       to: ["julialva2008@gmail.com", email],
       subject: `Turno Confirmado: ${name} ${surname}`,
-      html: `Nombre del Paciente: ${name} ${surname} \n Fecha de la Consulta: ${fecha} \n Horario de la Consulta: ${horaInicio} - ${horaFin} \n Monto Total: 5000ARS `,
-      text:  `Nombre del Paciente: ${name} ${surname} \n Fecha de la Consulta: ${fecha} \n Horario de la Consulta: ${horaInicio} - ${horaFin} \n Monto Total: 5000ARS `      
+      html: `<p>Nombre Completo: ${name} ${surname}</p></br><p>Fecha Programada: ${fecha}</p></br><p>Horario Programado: ${horaInicio} - ${horaFin}</p></br><p>Monto Total: 5000ARS</p></br><p>Ante cualquier duda, consulte al +54 9 11 6536-8186.</p>`,    
     });
 
     if (error) {
