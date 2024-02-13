@@ -5,8 +5,7 @@ import { viewDataController } from "../controllers/viewDataController.js";
 import { Resend } from "resend";
 
 const router = Router(); // Sirve para exportar las rutas al router principal
-const resend = new Resend("re_2ZnRBvju_zf7xtCwFt9uq6DpdUJhv9SJX");
-resend.domains.create({ name: 'https://lucianacresia.netlify.app' });
+const resend = new Resend(process.env.RESEND_KEY);
 
 router.post("/create_preference", mercadoPagoController);
 

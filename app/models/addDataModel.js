@@ -2,7 +2,7 @@ import {createClient} from '@supabase/supabase-js';
 
 
 const supabaseUrl = 'https://snpzufisarbliaevsggm.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNucHp1ZmlzYXJibGlhZXZzZ2dtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDY4MjUyMzUsImV4cCI6MjAyMjQwMTIzNX0.D_8pSrHV-LTygg5upvGNTIK2FGj2amPrgz0AR7Zi860';
+const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export const addDataModel = async (datosCliente, datosTurno) => {
