@@ -19,7 +19,7 @@ export const mercadoPagoController = async (req, res) => {
                 pending: 'https://lucianacresia.netlify.app'
             },
             auto_return: "approved",
-            notification_url: "https://2ccb-179-37-169-109.ngrok-free.app/webhook",
+            notification_url: "https://luci-web-backend-production.up.railway.app/webhook",
             metadata: {
                 patientData: req.body.patientData,
                 shiftData: req.body.shiftData
