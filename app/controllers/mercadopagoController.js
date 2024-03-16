@@ -9,7 +9,8 @@ export const mercadoPagoController = async (req, res) => {
                     title: req.body.title,
                     quantity: Number(req.body.quantity),
                     unit_price: Number(req.body.price),
-                    currency_id: 'ARS'
+                    currency_id: 'ARS',
+
                 }
             ],
             back_urls: {
@@ -17,11 +18,16 @@ export const mercadoPagoController = async (req, res) => {
                 failure: 'https://lucianacresia.netlify.app',
                 pending: 'https://lucianacresia.netlify.app'
             },
-            auto_return: 'approved'
+            auto_return: "approved",
+            notification_url: "https://2ccb-179-37-169-109.ngrok-free.app/webhook",
+            metadata: {
+                patientData: req.body.patientData,
+                shiftData: req.body.shiftData
+            },
+
         }
 
-        const {result} = await mercadoPagoModel(body)
-
+        const { result } = await mercadoPagoModel(body)
 
         res.json({
             id: result.id,
