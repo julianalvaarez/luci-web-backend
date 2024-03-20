@@ -21,7 +21,7 @@ export const addShift = async (shiftData, patientData) => {
 
     const { emailData } = await resend.emails.send({
         from: "Acme <onboarding@resend.dev>",
-        to: ["julialva2008@gmail.com", patientData.email],
+        to: ["julialva2008@gmail.com", patientData.email, "lucianacresiaalvarez@gmail.com"],
         subject: `Turno Nutricional Confirmado`,
         html: `<p>Nombre Completo: ${patientData.name} ${patientData.surname}</p></br><p>Numero de Telefono: ${patientData.tel}</p></br><p>Fecha Programada: ${newShiftData.date}</p></br><p>Horario Programado: ${newShiftData.start_hour} - ${newShiftData.end_hour}</p></br><p>Monto Total: 8000ARS</p></br><p>Ante cualquier duda, consulte al <strong>+54 9 11 6536-8186</strong>.</p>`,
     });
