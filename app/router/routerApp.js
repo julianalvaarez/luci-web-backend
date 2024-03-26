@@ -7,7 +7,7 @@ import paypal from '@paypal/checkout-server-sdk';
 import { addShift } from "../helpers/addShift.js";
 
 const clientId = 'AfD5_J5oF-QwPo9jm2SaLmeluYJGdRgRV0bn_KB6bJ2xKgX6BMejeu5u8MVj-bOc0bpckirEclmLQRIK'
-const clientSecret = 'EMhfxF6vpcJzJvsQOuGKn3jsMo7KlqfPnEiXfQUCJK1f-nP65x7d-fff2rvw76l64xA9AAJHAZHZVp4j'
+const clientSecret = process.env.PAYPAL_SECRET_KEY
 
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret)
 const client = new paypal.core.PayPalHttpClient(environment)
