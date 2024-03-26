@@ -10,7 +10,7 @@ export const webhookController = async (req, res) => {
         if (response.ok) {
             const { status, status_detail, metadata } = await response.json()
             if (status === 'approved' && status_detail === 'accredited') {
-                await addShift(metadata.shift_data, metadata.patient_data)
+                await addShift(metadata.shift_data, metadata.patient_data, 'MERCADOPAGO')
             }
         }
 
