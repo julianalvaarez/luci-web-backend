@@ -6,7 +6,7 @@ import { sendMessagesController } from "../controllers/sendMessagesController.js
 import paypal from '@paypal/checkout-server-sdk';
 import { addShift } from "../helpers/addShift.js";
 
-const clientId = 'AfD5_J5oF-QwPo9jm2SaLmeluYJGdRgRV0bn_KB6bJ2xKgX6BMejeu5u8MVj-bOc0bpckirEclmLQRIK'
+const clientId = 'AQloVzLM19RsxwhGf8XI6CilsVWs1pp1tYW9TiiZMsMTSi-PqK57M2JDtbu_jYyfTlrMgztVUWVa8Biw'
 const clientSecret = process.env.PAYPAL_SECRET_KEY
 
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret)
